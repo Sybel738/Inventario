@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenida | eCommerce Ropa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-section {
+            /* Imagen de fondo con capa oscura para legibilidad */
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://tecmileniomx.vtexassets.com/arquivos/ids/155634/VIONTAGE-NEGRA-DETALLE-.png?v=638338561137730000');
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-gestion {
+            padding: 15px 40px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .btn-gestion:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="container">
+            <h1 class="display-1 fw-bold mb-3">Comunidad Tec Milenio</h1>
+            <p class="lead fs-3 mb-5 opacity-75">Los mejores diseños</p>
+
+            <div class="row g-4 mb-5 justify-content-center">
+                <div class="col-md-4">
+                    <div class="stat-card shadow">
+                        <h2 class="display-4 fw-bold mb-0" th:text="${totalUnidades}">0</h2>
+                        <p class="text-uppercase small mb-0">Unidades en Stock</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card shadow">
+                        <h2 class="display-4 fw-bold mb-0" th:text="${totalModelos}">0</h2>
+                        <p class="text-uppercase small mb-0">Modelos Únicos</p>
+                    </div>
+                </div>
+            </div>
+
+            <a th:href="@{/ropa}" class="btn btn-primary btn-lg btn-gestion shadow">
+                Ir al Inventario <i class="bi bi-arrow-right-short"></i>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
